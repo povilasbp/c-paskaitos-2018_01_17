@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _12_02_studentai
+class meska
+{
+    
+}
+namespace _12_04_uzduotis
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Grupe csharp = new Grupe();
-            csharp.GrupesInfo();
-
         }
     }
 }
