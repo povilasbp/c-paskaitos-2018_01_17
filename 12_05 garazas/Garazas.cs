@@ -94,6 +94,11 @@ namespace _12_05_garazas
         {
             var didziausia = AutoSarasas.First();
 
+            foreach (var auto in AutoSarasas)
+            {
+                if (didziausia.GaliaKW < auto.GaliaKW)
+                    didziausia = auto;
+            }
             return didziausia;
         }
 
