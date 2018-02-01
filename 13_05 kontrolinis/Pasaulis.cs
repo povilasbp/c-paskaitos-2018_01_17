@@ -15,9 +15,9 @@ namespace _13_05_kontrolinis
         {
             Miestas daugiausiai = SaliuSarasas[0].MiestuSarasas[0];
 
-            for(int i = 0; i < SaliuSarasas.Count; i++)
+            for (int i = 0; i < SaliuSarasas.Count; i++)
             {
-                for(int j = 0; j < SaliuSarasas[i].MiestuSarasas.Count; j++)
+                for (int j = 0; j < SaliuSarasas[i].MiestuSarasas.Count; j++)
                 {
                     if (daugiausiai.GyventojuSkaicius < SaliuSarasas[i].MiestuSarasas[j].GyventojuSkaicius)
                     {
@@ -34,13 +34,13 @@ namespace _13_05_kontrolinis
 
             foreach (var salis in SaliuSarasas)
             {
-                if(daugiausia.MiestuSkaicius() < salis.MiestuSkaicius())
+                if (daugiausia.MiestuSkaicius() < salis.MiestuSkaicius())
                 {
                     daugiausia = salis;
                 }
             }
             return daugiausia;
         }
-       
+
     }
 }

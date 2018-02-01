@@ -12,21 +12,22 @@ namespace _13_05_kontrolinis
 {
     public partial class Form1 : Form
     {
-            Pasaulis Zeme = new Pasaulis();
+        Pasaulis Zeme = new Pasaulis();
+
         public Form1()
         {
             InitializeComponent();
+            this.Text = "Kontrolinio uzduotis 18/02/01, povbuk";
         }
 
         private void atidarytiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             var FailoPasirinkimas = new OpenFileDialog();
             using (FailoPasirinkimas)
             {
                 FailoPasirinkimas.Filter = "csv failai (*.csv) | *.csv";
                 FailoPasirinkimas.Multiselect = true;
-               
+
                 if (FailoPasirinkimas.ShowDialog() == DialogResult.OK)
                 {
                     foreach (var failas in FailoPasirinkimas.FileNames)
@@ -48,18 +49,27 @@ namespace _13_05_kontrolinis
             skaiciavimaiToolStripMenuItem.Enabled = true; // leidzia skaiciuoti
         }// using pabaiga
 
-        private void baigtiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void skaiciavimaiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            groupBoxAtsakymas.Visible = true;
+            tabControl1.Dock = DockStyle.Fill;
+            groupBoxAtsakymas.Text = "ATSAKYMAI";
+            groupBoxAtsakymas.Dock = DockStyle.Bottom;
             string ats1 = Zeme.DaugiausiaiGyventoju().Pavadinimas + " " + Zeme.DaugiausiaiGyventoju().GyventojuSkaicius;
             Salis daugiausiaMiestu = Zeme.DaugiausiaiMiestu();
             string ats2 = daugiausiaMiestu.Pavadinimas + " " + daugiausiaMiestu.MiestuSkaicius();
-            MessageBox.Show(ats1, "Daugiausiai gyventoju");
-            MessageBox.Show(ats2, "Daugiausiai miestu");
+            labelAtsakymas1.Text = "Daugiausiai gyventoju:";
+            labelAtsakymas2.Text = "Daugiausiai miestu:";
+            textBoxAtsakymas1.Text = ats1;
+            textBoxAtsakymas2.Text = ats2;
+            //MessageBox.Show(ats1, "Daugiausiai gyventoju");
+            //MessageBox.Show(ats2, "Daugiausiai miestu");
+        }
+
+        private void baigtiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            baigti arTikraiBaigtiLentele = new baigti();
+            arTikraiBaigtiLentele.ShowDialog();
         }
     }
 }

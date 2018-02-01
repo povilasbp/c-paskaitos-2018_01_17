@@ -13,7 +13,7 @@ namespace _13_05_kontrolinis
         public string Zemynas { get; private set; }
         public List<Miestas> MiestuSarasas = new List<Miestas>();
 
-       
+
         public Salis(string failas)
         {
             //failas = @"C:\Users\Povilas\Desktop\Lietuva.csv";
@@ -22,8 +22,8 @@ namespace _13_05_kontrolinis
             Pavadinimas = VisasFailas[0];
             Zemynas = VisasFailas[1];
 
-            
-            for(int i = 2; i < VisasFailas.Length; i++)
+
+            for (int i = 2; i < VisasFailas.Length; i++)
             {
                 Miestas miest = new Miestas(VisasFailas[i]);
                 MiestuSarasas.Add(miest);
